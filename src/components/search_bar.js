@@ -7,12 +7,12 @@ class SearchBar extends Component {
     this.state = {term: ''};
   }
   render() {
-    return <div>
+    return (<div>
         <input onChange={
           evt => this.setState({term: evt.target.value})
-        } >
+        } value = {this.state.term} />
         Value of the input:  {this.state.term}
-      </div>;
+      </div>);
   }
 
 }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {reduxForm} from 'redux-form';
 import {createPost} from '../actions/index';
+import {Link} from 'react-router';
 
 class PostCreate extends Component {
   render() {
@@ -37,6 +38,7 @@ class PostCreate extends Component {
           </div>
 
           <button type="submit" className="btn btn-primary">Create</button>
+          <Link to="/" className="btn btn-danger" > Cancel </Link>
         </form>
     );
   }

@@ -15,13 +15,18 @@ class PostCreate extends Component {
   }
 
   render() {
+    function clickHeader(evt) {
+      // commenting out evt.persist() results in evt.target=null on my console.
+      evt.persist();
+      console.log(evt);
+    }
     const {handleSubmit, fields:{title, categories, content}} = this.props;
     function hasDanger(field) {
       return field.touched && field.invalid ? 'has-danger' : '';
     }
     return (
         <form onSubmit = {handleSubmit(this.onSubmit.bind(this))}>
-          <h3>Create a New Post </h3>
+          <h3 onClick={clickHeader}>Create a New Post </h3>
 
           <div className={`form-group ${hasDanger(title)}`}>
             <label> Title </label>

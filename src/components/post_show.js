@@ -1,7 +1,30 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {fetchPost} from '../actions/index';
 
-export default class {
+class PostShow extends Component {
+  componentWillMount() {
+    this.props.fetchPost(this.props.params.id);
+  }
+
   render() {
-    return <div> show {this.props.params.id}</div>;
+    if (!this.props.post) {
+      return <div>Loading...</div>;
+    }
+
+    const {post} = this.props;
+    return (
+      <div>
+        <h3>{post.title} </h3>
+        <h6>Categories: {post.categories} </h6>
+        <p> {post.content} </p>
+      </div>
+    );
   }
 }
+
+function mapStateToProps(state) {
+  return {post: state.posts.post };
+}
+
+export default connect(mapStateToProps, {fetchPost})(PostShow);

@@ -8,6 +8,7 @@ import App from './components/app';
 export default (
  <Route path="/" component={App} >
    <IndexRoute component={PostsIndex} />
+   <Route path="index.html" component={PostsIndex} />
    <Route path="create" component={PostCreate} />
    <Route path="posts" component={PostsIndex} />
    <Route path="posts/:id" component={PostShow} />
